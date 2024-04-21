@@ -7,14 +7,20 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.signup-form{
-    /* display: flex; */
+.card-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .form {
+
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 350px;
+    max-width: 400px;
     padding: 20px;
     border-radius: 20px;
     position: relative;
@@ -24,9 +30,10 @@ body{
     box-shadow: 0 0 30px 0 #8282da;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 25%);
+    transform: translate(-50%, 50%);
   }
   
+  .card
   .title {
     font-size: 28px;
     font-weight: 600;

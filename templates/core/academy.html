@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1, h2 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .navbar {
+      background-color: #111;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #333;
+    }
+
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .video-container iframe {
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .video-container iframe:hover {
+      transform: scale(1.05);
+    }
+
+    .podcast-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .podcast-container iframe {
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .podcast-container iframe:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 0;
+      background-color: #111;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div> -->
+
+  <div class="container">
+    <h1>Welcome to Our Exciting Academy!</h1>
+    
+    <h2>YouTube Videos</h2>
+    <div class="video-container">
+        <div class="video-wrapper">
+          <h3>Hindi</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/qdV7Q1ElI8Y?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <h3>English</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PQqfeyUQbyE?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+            <h3>Hindi</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/tlvOyag8Zpg?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <h3>Marathi</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/LsYIjj9TpF8?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+    
+    <h2>Spotify Podcasts</h2>
+    <div class="podcast-container">
+      <!-- Replace SPOTIFY_EMBED_LINK with your Spotify embed code -->
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2rSleYMOLiwZN6oCxALYcL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <!-- Add more podcasts if needed -->
+    </div>
+    <h2>Recommended Books</h2>
+    <div class="book-container" style="text-align: center;">
+        <div class="book" style="display: inline-block; text-align: left;">
+          <img src="investonomy.jpg" alt="Book 1">
+          <h3>Investonomy</h3>
+          <p style="margin: 10px 0;">Author: Pranjal Kamra</p>
+          <p style="margin: 10px 0;">Description: Empowering investors with modern value investing principles and market insights.</p>
+        </div>
+      </div>      
+  </div>
+
+  <footer>
+    <p>&copy; 2024 TradePulse. All rights reserved.</p>
+  </footer>
+</body>
+
+{% endblock %}

@@ -36,12 +36,63 @@ background-color: #212529;
   background-size: cover;
 }
 
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #212529;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 8px 12px;
+}
+
+.dropdown ul li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown ul li a:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover .dropdown {
+  display: block;
+}
+
+.login-button{
+    background: white!important;
+    color: #212529!important;
+    border-radius: 0px 50px 50px 0px!important;
+    padding: 4px 8px!important;
+}
+
+.login{
+  background: white!important;        
+  color: #212529!important; 
+    border-radius: 50px!important;
+    padding: 4px 8px!important;
+}
+
 .navholder{
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   margin-top: -8vh;
   color: #212529;
 }
@@ -111,16 +162,16 @@ background-color: #212529;
   }
 }
 .navbar-link {
+  position: relative;
   display: inline-block;
   font-size: 1em;
   margin: 0 0.5em;
   font-weight: 600;
   color: #ffffff;
-  
 }
 
 .hero-sec{
-  background-image: url(https://images.unsplash.com/photo-1665656653092-684fdd316aca?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(https://res.cloudinary.com/ds2uw5gcw/image/upload/v1713717824/TRADE_PULSE_zz9sk6.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -288,7 +339,7 @@ width: 90%;
 
 .col{
 min-width: 250px;
-color: #0c7073;
+color: #fdfdfd;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .col h4{

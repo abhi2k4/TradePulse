@@ -1,45 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradePulse-Watchlist</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" /> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style2.css" />
-</head>
+    <link href="{% static 'css/style2.css' %}"  rel="stylesheet">
+
 <style> 
-  .list,.list2{
+  .list{
     display: flex;
     justify-content: space-around;
     gap: 2em;
-    margin-top: 2em;
+    flex-wrap: wrap;
+    margin-top: 2em!important;
+  }
+
+  .btn{
+    background-color: #1e222d;
+    border: none;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
   }
 </style>
 <body>
-   <div class="placeholder"></div>
-    <div class="navholder">
-      <div class="navb">
-          <div class="navbar" style="margin-top: -3em;">
-            <div class="nav-left">
-              <div class="navbar-link"><a href="#">Home</a></div>
-              <div class="navbar-link"><a href="cryptocurrency.html">Cryptocurrency</a></div>
-              <div class="navbar-link"><a href="#">Academy</a></div>
-            </div>
-            <div class="nav-logo">
-              <img src="./Trade Pulse.png" alt="">
-            </div>
-            <div class="nav-right">
-              <div class="navbar-link"><a href="news.html">News</a></div>
-              <div class="navbar-link"><a href="watchlist.html">Watchlist</a></div>
-              <div class="navbar-link"><a href="personal.html">Personal Finance</a></div>
-            </div>
-          </div>
-        </div>
-    </div>  
+  
 <div class="list">
       <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
@@ -55,7 +52,7 @@
   }
     </script></a></div>
     <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit" style="color: white">
+        <button class="btn btn-outline-success" type="submit" >
           Add to Watchlist
         </button>
   </div>
@@ -75,7 +72,7 @@
   }
     </script></a></div>
     <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit" style="color: white">
+        <button class="btn btn-outline-success" type="submit" >
           Add to Watchlist
         </button>
   </div>
@@ -94,12 +91,12 @@
   }
     </script></a></div>
     <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit" style="color: white">
+        <button class="btn btn-outline-success" type="submit" >
           Add to Watchlist
         </button>
   </div>
   <!-- TradingView Widget END -->
-</div>
+
 <div class="list2">
     <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
@@ -115,7 +112,7 @@
   }
     </script></a></div>
     <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit" style="color: white">
+        <button class="btn btn-outline-success" type="submit" >
           Add to Watchlist
         </button>
   </div>
@@ -136,7 +133,7 @@
   
   <!-- TradingView Widget END -->
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -154,7 +151,7 @@
   }
     </script></a></div>
     <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit" style="color: white">
+        <button class="btn btn-outline-success" type="submit" >
           Add to Watchlist
         </button>
   </div>
@@ -175,7 +172,7 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -194,7 +191,7 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -213,7 +210,7 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -234,7 +231,7 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -253,7 +250,7 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
@@ -272,13 +269,15 @@
 }
   </script></a></div>
   <form class="d-flex" role="search">
-    <button class="btn btn-outline-success" type="submit" style="color: white">
+    <button class="btn btn-outline-success" type="submit" >
       Add to Watchlist
     </button>
 </div>
 <!-- TradingView Widget END -->
 </div>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-</html>
+
+{% endblock %}

@@ -1,41 +1,64 @@
-from django.shortcuts import render
-# from django.http import HttpResponse
-from django.shortcuts import redirect
+
+from django.shortcuts import render,redirect
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }
+    return render(request, 'core/index.html', context)
 
 def crypto(request):
-    return render(request, 'core/cryptocurrency.html')
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }
+    return render(request, 'core/cryptocurrency.html', context)
 
 def news(request):
-    return render(request, 'core/news.html')
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }
+    return render(request, 'core/news.html', context)
+
+def personal(request):
+    context = {
+        'show_navbar': False,
+        'show_footer': False,
+    }
+    return render(request, 'core/personal.html', context)
+
+def calculator(request):
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }
+    return render(request, 'core/calculator.html', context)
 
 def watchlist(request):
-    return render(request, 'core/watchlist.html')
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }
+    return render(request, 'core/watchlist.html', context)
 
-def login(request):
-    return render(request, 'core/login.html')
-# Create your views here.
-def register(request):
-    if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password = request.POST['password']
-        password_confirm = request.POST['password_confirm']
+def academy(request):
+    context = {
+        'show_navbar': True,
+        'show_footer': False,
+    }
+    return render(request, 'core/academy.html', context)
 
-        if password == password_confirm:
-            user = User(email=email, first_name=first_name, last_name=last_name)
-            user.set_password(password)
-            user.save()
-            messages.success(request, 'Your account has been created, you can now log in.')
-            return redirect('login')
-        else:
-            messages.error(request, 'Passwords do not match.')
-            return redirect('register')
-    else:
-        return render(request, 'register.html')
+def streamlit_view(request):
+    context = {
+        'show_navbar': True,
+        'show_footer': True,
+    }    
+    return render(request, 'core/forecast.html')
+
+    
