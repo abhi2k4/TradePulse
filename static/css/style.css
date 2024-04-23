@@ -1,5 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Outfit, sans-serif;
   background-color: #212529;
   color: #fff;
   padding: 0;
@@ -10,6 +13,11 @@ padding: 0;
 box-sizing: border-box;
 }
 
+.blurred {
+  filter: blur(5px); /* Initial blur effect */
+  transition: filter 1s ease; /* CSS transition for smooth blur effect */
+  pointer-events: none;
+}
 /* For Chrome, Safari, and Opera */
 ::-webkit-scrollbar {
 width: 8px; /* Adjust the width as needed */
@@ -36,14 +44,70 @@ background-color: #212529;
   background-size: cover;
 }
 
+.popup {
+  z-index: 919!important;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40px;
+  border: groove 1px white;
+
+  p{
+    color: #ffffff;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
 .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   display: none;
   background-color: #212529;
-  min-width: 160px;
+  min-width: 100px;
   z-index: 1;
+}
+
+.dim{
+  color: #8e8e8e;
+  pointer-events: ;
 }
 
 .dropdown ul {
@@ -97,6 +161,7 @@ background-color: #212529;
   color: #212529;
 }
 .navb {
+  z-index: 1000;
   position: fixed;
   border-radius: 50px;
   padding: 2em 0;
@@ -292,9 +357,9 @@ margin: 20px;
 .footer{
 width: 100%;
 position: relative;
-background: #141E30;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #141E30;
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  
+background: linear-gradient(to right, #243B55, #141E30); 
 
 color: #fff;
 padding: 0;

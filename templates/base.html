@@ -33,20 +33,27 @@
                     <img src="https://res.cloudinary.com/ds2uw5gcw/image/upload/v1712660151/Trade_Pulse_idzyuu.png" alt="">
                   </div>
                   <div class="nav-right">
-                    <div class="navbar-link"><a href="http://127.0.0.1:5502/index.html">News</a></div>
+                    <div class="navbar-link"><a href="http://127.0.0.1:5500/news.html">News</a></div>
                     <!-- <div class="navbar-link"><a href="{% url 'watchlist' %}">Watchlist</a></div> -->
-                    <div class="navbar-link"><a href="#">Personal Finance <span><i class="fa fa-caret-down"></i></span></a><div class="dropdown">
+                    <div class="navbar-link"><a href="#">Personal Finance <span><i class="fa fa-caret-down"></i></span></a>
+                      <div class="dropdown">
                       <ul>
                           <li><a href="{% url 'calculator' %}">Calculator</a></li>
                           <li><a class="nav-link" href="https://www.policybazaar.com/">Insurance</a></li>
                           <li><a href="https://coin.zerodha.com/mf">Mutual Funds</a></li>
                           <li><a class="nav-link" href="https://sbi.co.in/web/personal-banking/loans/personal-loans">Loan</a></li>
                       </ul>
-                  </div></div>
+                  </div>
+                </div>
                     {% if request.user.is_authenticated %}
-                    <div class="navbar-link login"><a class="login" href="{% url 'account_logout' %}" ><i class="fa-solid fa-user"></i></i></a></div>
+                    <div class="navbar-link login"><a class="login" href="" style="pointer-events: none;" ><i class="fa-solid fa-user"></i></a>
+                      <div class="dropdown">
+                        <ul>
+                            <li><a href="{% url "core:logout" %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                          </div>
+                    </div>
                     {% else %}
-                    <div class="navbar-link"><a class="login-button" href="{% url 'account_login' %}"><i class="fa-solid fa-right-to-bracket"></i></a></div>
+                    <div class="navbar-link"><a class="login-button" href="{% url "core:login" %}"><i class="fa-solid fa-right-to-bracket"></i></a></div>
                     {% endif %}
                   </div>
               </div>
@@ -69,7 +76,7 @@
             <div class="row">
               <div class="col" id="information">
                 <img src="https://res.cloudinary.com/ds2uw5gcw/image/upload/v1712660151/Trade_Pulse_idzyuu.png" alt="" class="logo1">
-                <h1>Trade Pulse</h1>
+                <h1>Trade Pulse ™</h1>
                 <p>Seamlessly monitor market trends, make informed decisions, and access advanced features to optimize trading strategies for better outcomes.</p>
     
               </div>

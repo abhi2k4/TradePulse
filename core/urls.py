@@ -4,6 +4,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from .views import authView, index,logout_view
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -14,6 +15,9 @@ urlpatterns = [
     path('academy/', views.academy, name='academy'),
     path('calculator/', views.calculator, name='calculator'),
     path('forecast/', views.streamlit_view, name='forecast'),
+    path("signup/", authView, name="authView"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path('logout/', logout_view, name='logout'),
     
 ]
 

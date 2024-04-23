@@ -6,29 +6,21 @@ window.addEventListener("load", () => {
     fetchNews("cryptocurrency");
 });
 
+
 function reload() {
     window.location.reload();
 }
 
 async function fetchNews(query) {
-    try {
-        const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-        if (!res.ok) {
-            throw new Error(`Failed to fetch news: ${res.statusText}`);
-        }
-        const data = await res.json();
-        bindData(data.articles);
-    } catch (error) {
-        console.error(error);
-        alert("Failed to fetch news. Please try again later.");
-    }
+    const res = await fetch(`${url}${query}&sortBy=publishedAt&apiKey=${API_KEY}`);
+    const data = await res.json();
+    bindData(data.articles);
 }
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
     const newsCardTemplate = document.getElementById("template-news-card");
 
-    // Clear existing cards
     cardsContainer.innerHTML = "";
 
     articles.forEach((article) => {
@@ -55,7 +47,6 @@ function fillDataInCard(cardClone, article) {
 
     newsSource.innerHTML = `${article.source.name} · ${date}`;
 
-    // Add a click event to open the news URL in a new tab
     cardClone.firstElementChild.addEventListener("click", () => {
         window.open(article.url, "_blank");
     });
@@ -65,9 +56,7 @@ let curSelectedNav = null;
 function onNavItemClick(id) {
     fetchNews(id);
     const navItem = document.getElementById(id);
-    if (curSelectedNav) {
-        curSelectedNav.classList.remove("active");
-    }
+    curSelectedNav?.classList.remove("active");
     curSelectedNav = navItem;
     curSelectedNav.classList.add("active");
 }
@@ -77,12 +66,35 @@ const searchText = document.getElementById("search-text");
 
 searchButton.addEventListener("click", () => {
     const query = searchText.value;
-    if (!query) {
-        return;
-    }
+    if (!query) return;
     fetchNews(query);
-    if (curSelectedNav) {
-        curSelectedNav.classList.remove("active");
-    }
+    curSelectedNav?.classList.remove("active");
     curSelectedNav = null;
+});
+
+async function fetchNews(query) {
+    try {
+        const res = await fetch(`${url}${query}&sortBy=publishedAt&apiKey=${API_KEY}`);
+        if (!res.ok) {
+            throw new Error(`Failed to fetch news: ${res.statusText}`);
+        }
+        const data = await res.json();
+        bindData(data.articles);
+    } catch (error) {
+        console.error(error);
+        alert("Failed to fetch news. Please try again later.");
+    }
+}
+
+
+document.getElementById("sort-by-date").addEventListener("click", () => {
+    sortNews('publishedAt');
+});
+
+document.getElementById("sort-by-popularity").addEventListener("click", () => {
+    sortNews('popularity');
+});
+
+document.getElementById("sort-by-relevancy").addEventListener("click", () => {
+    sortNews('relevancy');
 });

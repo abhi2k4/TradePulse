@@ -117,7 +117,11 @@
             optimizing trades for speed, efficiency, and risk management. It enhances market liquidity and price discovery
             while requiring accurate strategies to mitigate risks and capitalize on opportunities,
             driving its efficacy and impact in financial markets.</p>
+            {% if user.is_authenticated %}
           <a href="https://in.tradingview.com/chart/GIj2wE8a/?symbol=NASDAQ%3ATSLA" class="btn btn-success">Experience now</a>
+          {% else %}
+          <a href="{% url 'core:login' %}" class="btn btn-success">Experience now</a>
+          {% endif %}
         </div>
       
       </div>
@@ -141,13 +145,20 @@
     </div>
     <!-- TradingView Widget END -->
       </div>
-      <nav class="navbar bg-dark ">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">Top Stocks</a> <!--Take it to center-->
+        
+        <div id="loginPopup" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="closePopup()">&times;</span>
+              <h2>Login Required</h2>
+              <p>Please login to access this content.</p>
+              <button onclick="redirectToLogin()">Login</button>
+          </div>
+      </div>
+  <div class="container-fluid">
+          <p>Top Stocks</p>
         </div>
-      </nav>
       <!-- TradingView Widget BEGIN -->
-      <div class="tradingview-widget-container1">
+      <div class="tradingview-widget-container1 {% if not user.is_authenticated %}blurred{% endif %}">
         <div class="tradingview-widget-container__widget"></div>
         <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
             target="_blank">
@@ -233,6 +244,7 @@
           </a></div>
       </div>
       <!-- TradingView Widget END -->
+
       <div class="card text-center bg-dark text-white">
         <div class="card-header">
           Featured
@@ -240,12 +252,18 @@
         <div class="card-body">
           <h5 class="card-title">Stock Forecasting</h5>
           <p class="card-text">Stock forecasting utilizes historical data, statistical analysis, and machine learning algorithms to predict future price movements of stocks. Techniques like time series analysis, sentiment analysis, and neural networks are employed to forecast trends and make informed investment decisions. However, stock forecasting is inherently uncertain due to market volatility and unpredictable events.</p>
-          <a href="{% url 'forecast'%}" class="btn btn-success">Experience now</a>
+          {% if user.is_authenticated %}
+          <a href="http://localhost:8501/"  target="_blank" class="btn btn-success">Experience now</a>
+          {% else %}
+          <a href="{% url 'core:login' %}" class="btn btn-success">Experience now</a>
+          {% endif %}
         </div>
       </div>
-     
+      <div class="container-fluid">
+        <p>Stock Screener</p>
+      </div>
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container2">
+    <div class="tradingview-widget-container2 {% if not user.is_authenticated %}blurred{% endif %}">
       <div class="tradingview-widget-container__widget"></div>
       <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/" rel="noopener nofollow" target="_blank">
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
@@ -264,13 +282,11 @@
     </div>
     <!-- TradingView Widget END -->
     
-    <nav class="navbar bg-dark ">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Advanced Charting</a> <!--Take it to center-->
-      </div>
-    </nav>
+    <div class="container-fluid">
+      <p>Advanced Charting</p>
+    </div>
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container3">
+    <div class="tradingview-widget-container3 {% if not user.is_authenticated %}blurred{% endif %}">
       <div class="tradingview-widget-container__widget"></div>
       <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/" rel="noopener nofollow" target="_blank">
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
@@ -299,4 +315,34 @@
     </body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+       window.addEventListener('load', function() {
+            // Check authentication status
+            var isAuthenticated = {% if user.is_authenticated %}true{% else %}false{% endif %};
+
+            // Select the div to be blurred
+            var contentDiv = document.querySelector('.content');
+
+            // Apply blur effect if not authenticated
+            if (!isAuthenticated) {
+                contentDiv.classList.add('blurred');
+            }
+        });
+
+        function openPopup() {
+            var popup = document.getElementById('loginPopup');
+            popup.style.display = 'block';
+        }
+
+          function closePopup() {
+              var popup = document.getElementById('loginPopup');
+              popup.style.display = 'none';
+          }
+
+          function redirectToLogin() {
+              // Add your login redirection logic here
+              // For example:
+              window.location.href = '{% url "core:login" %}';
+          }
+    </script>
 {% endblock%}
