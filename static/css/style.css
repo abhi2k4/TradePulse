@@ -16,7 +16,7 @@ box-sizing: border-box;
 .blurred {
   filter: blur(5px); /* Initial blur effect */
   transition: filter 1s ease; /* CSS transition for smooth blur effect */
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 /* For Chrome, Safari, and Opera */
 ::-webkit-scrollbar {
